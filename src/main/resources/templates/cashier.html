@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/css/loader.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <script type="text/javascript" src="/js/loader.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.bundle.min.js"></script>
+    <title th:text="#{profile}"></title>
+</head>
+<body>
+<div id="loader"></div>
+<div id="main" class="container-fluid">
+    <section th:replace="~{fragments/notification :: section}"></section>
+    <nav th:replace="~{fragments/nav_bar :: nav}"></nav>
+    <div class="row line">
+        <!------------------------MANAGER------------------------>
+        <th:block sec:authorize="hasRole('MANAGER')">
+            <div class="text-center d-flex justify-content-center mt-1 mb-3">
+                <div class="border border-3 border-primary border-opacity-50 rounded-5 shadow-lg px-4 py-1 mx-1 height-fit-content">
+                    <h3 th:text="|#{manage} #{cashiers}|" class="fw-bold"></h3>
+                    <div class="text-center">
+                        <h4 th:if="${user.getCashiers().size() == 0}" th:text="#{no_cashier}"></h4>
+                        <h4 th:if="${user.getHomesGroups().size() == 0}" th:text="#{no_homes_group}"></h4>
+                        <th:block th:if="${user.getHomesGroups().size() > 0}">
+                            <div class="add m-2">
+                                <a href="/profile/register-cashier">
+                                    <img src="/images/add.png" alt="add" class="icon m-1">
+                                    <span th:text="|#{register} #{cashier}|" class="pe-1"></span>
+                                </a>
+                            </div>
+                            <div class="add m-2">
+                                <a href="/profile/assign">
+                                    <img src="/images/tick.png" alt="add" class="icon m-1">
+                                    <span th:text="|#{assign} #{homes_group}|" class="pe-1"></span>
+                                </a>
+                            </div>
+                            <p th:each="c : ${user.getCashiers()}"
+                               th:text="|${c.getName()} - ${c.getHomesGroups().size()} #{number_single} #{homes_group}|"></p>
+                        </th:block>
+                    </div>
+                </div>
+            </div>
+        </th:block>
+        <!------------------------MANAGER------------------------>
+
+        <!------------------------CASHIER------------------------>
+        <th:block sec:authorize="hasRole('CASHIER')">
+            <div class="text-center d-flex justify-content-center mt-3">
+                <div class="border border-3 border-primary border-opacity-50 rounded-5 shadow-lg px-4 py-1 mx-1 height-fit-content">
+                    <h3 th:text="|#{homes_groups} #{cashier}|" class="fw-bold"></h3>
+                    <h4 th:if="${user.getHomesGroups().size() == 0}" th:text="#{no_assigned_homes_group}"></h4>
+
+                    <div th:each="hg : ${user.getHomesGroups()}" class="text-center">
+                        <form th:action="|/cashier/homesGroup${hg.getId()}|"
+                              th:method="GET">
+                            <input th:value="${now.getMonthValue()}" type="hidden" name="month">
+                            <input th:value="${now.getYear()}" type="hidden" name="year">
+                            <div class="add my-3">
+                                <img src="/images/money.png" alt="add" class="icon m-1">
+                                <button th:text="${hg.getName()}" type="submit" class="h4 p-0 bg-transparent border-0 mt-1 pe-1"></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </th:block>
+        <!------------------------CASHIER------------------------>
+    </div>
+    <div class="row">
+        <footer th:replace="~{fragments/footer :: footer}"></footer>
+    </div>
+</div>
+<script type="text/javascript" src="/js/utils.js"></script>
+</body>
+</html>

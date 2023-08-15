@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/css/loader.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <script type="text/javascript" src="/js/loader.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.bundle.min.js"></script>
+    <title th:text="#{edit}"></title>
+</head>
+<body>
+<div id="loader"></div>
+<div id="main" class="container-fluid">
+    <section th:replace="~{fragments/notification :: section}"></section>
+    <nav th:replace="~{fragments/nav_bar :: nav}"></nav>
+    <div class="row line">
+        <div class="row justify-content-center">
+            <div class="registrationForm">
+                <h3 th:text="|#{edit} #{expense}|" class="fw-bold"></h3>
+                <h4 th:text="|${expense.getMonth().getHomesGroup().getName()} #{month} ${expense.getMonth().getNumber()} #{year} ${expense.getMonth().getYear()}|"></h4>
+                <form th:action="@{|/cashier/homesGroup${homesGroupId}/edit-expense${expenseId}|}"
+                      th:method="POST"
+                      th:object="${addExpenseDTO}">
+                    <div th:text="#{name}" class="mt-3"></div>
+                    <label></label>
+                    <label for="name"></label>
+                    <input th:value="${expense.getName()}"
+                           th:errorclass="is-invalid"
+                           th:placeholder="#{expense_example_name}" type="text" name="name" id="name" class="m-auto w-100 mb-3"/>
+                    <div th:if="${#fields.hasErrors('name')}" class="notificationRegister">
+                        <p th:each="err : ${#fields.errors('name')}"
+                           th:text="${err}" class="bg-danger text-light rounded d-inline-flex p-1 m-1"></p>
+                    </div>
+                    <label for="value"></label>
+                    <input th:value="${expense.getValue()}"
+                           th:errorclass="is-invalid" type="number" name="value" id="value" min="0" max="999999999" step="0.01" placeholder="39.99"
+                           class="m-auto w-100 mb-3"/>
+                    <div th:if="${#fields.hasErrors('value')}" class="notificationRegister">
+                        <p th:each="err : ${#fields.errors('value')}"
+                           th:text="${err}" class="bg-danger text-light rounded d-inline-flex p-1 m-1"></p>
+                    </div>
+                    <label for="documentNumber"></label>
+                    <input th:value="${expense.getDocumentNumber()}"
+                           th:errorclass="is-invalid"
+                           th:placeholder="#{example_document_number}" type="text" name="documentNumber"
+                           id="documentNumber" class="float-start w-auto"/>
+                    <div th:if="${#fields.hasErrors('documentNumber')}" class="notificationRegister">
+                        <p th:each="err : ${#fields.errors('documentNumber')}"
+                           th:text="${err}" class="bg-danger text-light rounded d-inline-flex p-1 m-1"></p>
+                    </div>
+                    <div class="mt-4">
+                        <span th:text="#{document_date}"></span>
+                        <span th:text="${expense.getDocumentDate().toString()}"
+                              class="text-bg-danger fst-italic border border-dark rounded-2 px-2"></span>
+                    </div>
+                    <button th:text="#{edit}" type="submit" class="button m-3"></button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <footer th:replace="~{fragments/footer :: footer}"></footer>
+</div>
+</body>
+</html>

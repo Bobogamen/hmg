@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/css/loader.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <script type="text/javascript" src="/js/loader.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.bundle.min.js"></script>
+    <title th:text="#{profile}"></title>
+</head>
+<body>
+<div id="loader"></div>
+<div id="main" class="container-fluid">
+    <section th:replace="~{fragments/notification :: section}"></section>
+    <nav th:replace="~{fragments/nav_bar :: nav}"></nav>
+    <div class="row line">
+
+        <!------------------------CONTENT------------------------>
+        <div class="text-center">
+            <div class="add m-2">
+                <a href="/profile/add-homes_group">
+                    <img src="/images/add.png" alt="add" class="icon m-1">
+                    <span th:text="|#{add} #{homes_group}|" class="pe-1"></span>
+                </a>
+            </div>
+            <h3 th:if="${homeGroups.size() == 0}" th:text="#{no_homes_group}"></h3>
+            <div class="row justify-content-md-center">
+                <div th:each="hg : ${homeGroups}" class="width-fit-content m-auto p-2">
+                    <a th:href="|/profile/homesGroup${hg.getId()}|" style="text-decoration: none">
+                        <div th:style="'background-color: ' + ${hg.getBackgroundColor()}" class="homes-group">
+                            <img src="/images/apartment_building.png" alt="apartment_building" class="big-icon m-auto">
+                            <span th:text="${hg.getName()}" class="bg-light rounded-2 mt-1 fw-bold fs-4 px-3"></span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <footer th:replace="~{fragments/footer :: footer}"></footer>
+    </div>
+</div>
+<script type="text/javascript" src="/js/utils.js"></script>
+</body>
+</html>

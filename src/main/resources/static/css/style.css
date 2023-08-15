@@ -1,0 +1,420 @@
+body {
+    background-image: linear-gradient(to top, #8bcbe7 0%, #00e3ae 100%);
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    margin-bottom: 5rem;
+    font-family: monospace;
+    font-size: x-large;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.card-image {
+    object-fit: fill;
+    max-width: 7rem;
+    padding: 0;
+    position: relative;
+    margin: 0.3rem auto auto;
+    border: solid black 0.12rem;
+    border-radius: 100%;
+}
+
+.card {
+    background-color: #D4F3EEFF;
+    width: 22rem;
+    border: solid black 0.12rem;
+    border-radius: 0.7rem;
+}
+
+.card-info-warning {
+    background-color: #D4F3EEFF;
+    width: 20rem;
+    border: solid black 0.12rem;
+    border-radius: 0.7rem;
+}
+
+.card-resident {
+    width: 34rem;
+}
+
+.card-body {
+    background-color: #D4F3EEFF;
+    border-radius: 0.7rem;
+}
+
+.table-fee {
+    width: 95%;
+    border-collapse: separate;
+}
+
+.table-fee > tbody > tr td:nth-child(3):hover {
+    cursor: pointer;
+}
+
+/* ---------- Buttons styling START ---------- */
+.add-button {
+    position: relative;
+    background-color: transparent;
+    border-style: none;
+    cursor: pointer;
+    user-select: none;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+}
+
+
+.add-button:hover {
+    background-color: transparent;
+}
+
+
+.button {
+    position: relative;
+    background-color: transparent;
+    border-radius: 4rem;
+    border-color: black;
+    border-style: solid;
+    border-width: 0.12rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: black;
+    padding: 0.5rem 1.3rem 0.5rem 1.3rem;
+    cursor: pointer;
+    user-select: none;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+}
+
+
+.button:hover {
+    background-color: dodgerblue;
+    color: black;
+}
+
+.authorize-button {
+    background-color: #c2fbd7;
+    border-radius: 6rem;
+    box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset,rgba(44, 187, 99, .15) 0 1px 2px,rgba(44, 187, 99, .15) 0 2px 4px,rgba(44, 187, 99, .15) 0 4px 8px,rgba(44, 187, 99, .15) 0 8px 16px,rgba(44, 187, 99, .15) 0 16px 32px;
+    color: #0c1f0c;
+    cursor: pointer;
+    display: inline-block;
+    font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif;
+    padding: 0.5rem 1.4rem;
+    text-align: center;
+    text-decoration: none;
+    transition: all 250ms;
+    border: 0;
+    font-size: 1rem;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.authorize-button:hover {
+    box-shadow: rgba(44,187,99,.35) 0 -25px 18px -14px inset,rgba(44,187,99,.25) 0 1px 2px,rgba(44,187,99,.25) 0 2px 4px,rgba(44,187,99,.25) 0 4px 8px,rgba(44,187,99,.25) 0 8px 16px,rgba(44,187,99,.25) 0 16px 32px;
+    transform: scale(1.1) rotate(-1deg);
+    color: #0c1f0c;
+}
+
+.add {
+    display: inline-flex;
+    font-size: x-large;
+    font-family: sans-serif;
+    padding: 0.4rem 0.4rem 0.4rem 0.4rem;
+    background-color: #43ffd8;
+    border-radius: 0.7rem;
+    box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset,rgba(44, 187, 99, .15) 0 1px 2px,rgba(44, 187, 99, .15) 0 2px 4px,rgba(44, 187, 99, .15) 0 4px 8px,rgba(44, 187, 99, .15) 0 8px 16px,rgba(44, 187, 99, .15) 0 16px 32px;
+    color: #0c1f0c;
+}
+
+.add a {
+    text-decoration: none;
+}
+
+.add:hover {
+    background-color: #a4dcf5;
+    border-radius: 0.7rem;
+    padding: 0.4rem 0.4rem 0.4rem 0.4rem;
+}
+
+/* ---------- Buttons styling END ---------- */
+
+/* ---------- Utilities START ---------- */
+
+input {
+    width: 16rem;
+}
+
+input[type=checkbox] {
+    transform: scale(1.5);
+}
+
+input[type=checkbox]:hover {
+    transform: scale(1.5);
+    cursor: pointer;
+}
+
+.inputCheckBox {
+    width: 1rem;
+}
+
+.inputNumber {
+    width: 3rem;
+    height: 2rem;
+    margin: 0;
+    padding: 0;
+    border-width: 0;
+    text-align: center;
+}
+
+a {
+    color: black;
+}
+
+a:hover {
+    color: black;
+}
+
+.field {
+    width: 26rem;
+    background: whitesmoke;
+    border-style: inset;
+}
+
+.field-fit-content {
+    height: 2.2rem;
+    width: 18rem;
+    background: whitesmoke;
+    border-style: solid;
+    border-color: black;
+    border-width: 0.2rem;
+}
+
+.loginForm {
+    border-radius: 4rem;
+    padding: 0.2rem 0.2rem 0.2rem 0.2rem;
+}
+
+.line {
+    border-color: #2a5365;
+    border-style: solid none none none;
+    border-width: 0.1rem;
+    padding-bottom: 0.6rem;
+}
+
+.notification {
+    position: absolute;
+    font-size: 0.9rem;
+    top: 3rem;
+    left: 8rem;
+}
+
+.notification p {
+    display: none;
+}
+
+.notificationRegister {
+    display: block;
+    font-size: 0.9rem;
+    text-align: center;
+    max-width: 24rem;
+    margin: auto;
+}
+
+.registrationForm {
+    max-width: 36rem;
+    border-style: solid;
+    border-radius: 0.6rem;
+    border-width: 0.1rem;
+    margin-top: 1rem;
+    text-align: center;
+    padding: 1rem;
+}
+
+.add-home {
+    border: ridge dodgerblue;
+    margin: 0.9rem 0 0.9rem 0;
+    padding: 0.3rem 0 1.3rem 0;
+}
+
+.add-owner {
+    border: ridge indianred;
+    margin: 0.9rem 0 0.9rem 0;
+    padding: 0.3rem 0.3rem 0.3rem 0.3rem;
+}
+
+.add-resident {
+    display: none;
+    border: ridge springgreen;
+    margin: 0.9rem 0 0.9rem 0;
+    padding: 0.3rem 0 1.3rem 0;
+}
+
+.add-field {
+    width: 28rem;
+    margin-top: 0.1rem;
+    margin-bottom: 0.1rem;
+    background: whitesmoke;
+    border-style: inset;
+    border-color: darkgoldenrod;
+    height: 1.8rem;
+    font-size: 1.3rem;
+}
+
+.icon {
+    width: 1.8rem;
+    height: 1.8rem;
+}
+
+.big-icon {
+    width: 9rem;
+    height: 9rem;
+}
+
+.homes-group {
+    border-radius: 1rem;
+    width: fit-content;
+    display: grid;
+    padding: 0.6rem 0.6rem 0.4rem 0.6rem;
+    border: 0.2rem outset #0e1111;
+}
+
+.faded {
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.border-rounded {
+    border-radius: 4em;
+    border-color: black;
+    border-style: solid;
+    border-width: 0.12rem;
+}
+
+.visible-hidden {
+    visibility: hidden;
+}
+
+.edit-times {
+    display: none;
+    background-color: slategray;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    padding: 0.4rem;
+    align-content: center;
+    align-items: center;
+}
+
+.height-fit-content {
+    height: fit-content;
+}
+
+.width-fit-content {
+    width: fit-content;
+}
+
+.webkit-appearance-none {
+    -webkit-appearance: none;
+}
+
+.webkit-appearance-none:hover {
+    cursor: pointer;
+}
+
+.years {
+    margin: 0 0 0 -25rem;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.calendar {
+    visibility: hidden;
+    position: absolute;
+}
+
+.fill-screen-width {
+    width: 100vh;
+}
+
+
+
+/* ---------- Utilities END ---------- */
+
+/* ---------- PDF STYLING START ---------- */
+.homes-list {
+    width: 100%;
+    text-align: center;
+    font-size: 11pt;
+}
+
+.homes-list-table > thead > tr > td {
+    border: 1pt solid;
+    padding: 0 6px 0 6px;
+    font-weight: bold;
+}
+
+.homes-list-table > tbody > tr > td {
+    border: 1pt solid;
+    padding: 3px 2px 3px 2px;
+    font-size: 11pt;
+}
+
+.homes-list-table > tfoot > tr > td {
+    border: 1pt solid;
+    padding: 0 5px 0 5px;
+    font-weight: bold;
+    width: fit-content;
+}
+
+.receipt-border {
+    width: 1100px;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-size: 11pt;
+}
+
+.receipt-div {
+    border: 1px solid;
+    padding: 1pt;
+    margin: 2pt 2pt 2pt 2pt;
+    width: fit-content;
+}
+
+.table-receipt{
+    width: 352px;
+    height: 122px;
+    padding: 0;
+    margin: 0;
+    border: 1pt solid;
+}
+
+.table-receipt > thead > tr > td {
+    border: 1pt solid;
+    font-weight: bold;
+}
+
+.table-receipt > tbody > tr > td {
+    border: 1pt solid;
+}
+
+.table-receipt > tfoot {
+    font-weight: bold;
+}
+
+.page-break-after {
+    page-break-after: always;
+}
+/* ---------- PDF STYLING END ---------- */
+
+
+
+

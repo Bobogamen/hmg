@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/css/loader.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <script type="text/javascript" src="/js/loader.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.bundle.min.js"></script>
+    <title th:text="#{edit}"></title>
+</head>
+<body>
+<div id="loader"></div>
+<div id="main" class="container-fluid">
+    <section th:replace="~{fragments/notification :: section}"></section>
+    <nav th:replace="~{fragments/nav_bar :: nav}"></nav>
+    <div class="row line">
+        <div class="row justify-content-center">
+            <div class="registrationForm">
+                <h3 th:text="|#{edit} ${homesGroup.getName()}|"></h3>
+                <form th:action="@{|/profile/homesGroup${homesGroup.getId()}/edit|}"
+                      th:method="PUT"
+                      th:object="${addHomesGroupDTO}">
+
+                    <div th:text="#{name}"></div>
+                    <label for="name"></label>
+                    <input th:errorclass="is-invalid"
+                           th:placeholder="#{name_example}"
+                           th:value="${homesGroup.getName()}" type="text" name="name" id="name" class="field"/>
+                    <div th:if="${#fields.hasErrors('name')}" class="notificationRegister">
+                        <p th:each="err : ${#fields.errors('name')}"
+                           th:text="${err}" class="bg-danger text-light rounded d-inline-flex p-1 m-1"></p>
+                    </div>
+
+                    <div th:text="#{size_label}" class="mt-4"></div>
+                    <label for="size"></label>
+                    <input th:errorclass="is-invalid"
+                           th:value="${homesGroup.getSize()}" type="number" name="size" id="size" placeholder="23" class="field"/>
+                    <div th:if="${#fields.hasErrors('size')}" class="notificationRegister">
+                        <p th:each="err : ${#fields.errors('size')}"
+                           th:text="${err}" class="bg-danger text-light rounded d-inline-flex p-1 m-1"></p>
+                    </div>
+
+                    <div class="mt-4">
+                        <span th:text="|#{group_type}:|"></span>
+                        <span th:text="${homesGroup.getType()}"
+                              class="text-bg-info fst-italic border border-dark rounded-2 px-2"></span>
+                    </div>
+
+                    <div class="mt-4">
+                        <span th:text="|#{start_period}:|"></span>
+                        <span th:text="|${monthName} ${homesGroup.getStartPeriod().getYear()}|"
+                              class="text-bg-danger fst-italic border border-dark rounded-2 px-2"></span>
+                    </div>
+
+                    <div class="mt-4">
+                        <div th:text="|#{choose} #{background_color}|"></div>
+                        <label for="backgroundColor"></label>
+                        <input th:value="${homesGroup.getBackgroundColor()}" type="color" name="backgroundColor" id="backgroundColor" class="inputNumber">
+                    </div>
+
+                    <button th:text="#{edit}" type="submit" class="button m-3"></button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <footer th:replace="~{fragments/footer :: footer}"></footer>
+    </div>
+</div>
+</body>
+</html>

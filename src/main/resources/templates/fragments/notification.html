@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <title>Home Manager</title>
+</head>
+<body>
+<section class="notification">
+    <p th:text="${fail}" class="bg-danger text-light rounded p-1 px-1"></p>
+    <p th:text="${success}" class="bg-success text-light rounded p-1 px-1"></p>
+</section>
+</body>
+</html>

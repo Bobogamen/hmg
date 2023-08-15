@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/css/loader.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <script type="text/javascript" src="/js/loader.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.bundle.min.js"></script>
+    <title th:text="#{home_manager}"></title>
+</head>
+<body>
+<div id="loader"></div>
+<div id="main" class="container-fluid">
+    <section th:replace="~{fragments/notification :: section}"></section>
+    <nav th:replace="~{fragments/nav_bar :: nav}"></nav>
+    <div class="row line">
+
+    <!------------------------CONTENT------------------------>
+        <!------------------------LEFT SIDE------------------------>
+        <div class="col">
+            <div class="card row m-auto mt-5">
+                <img src="/images/home-page/expenses.png" class="card-img-top card-image" alt="expenses">
+                <div class="card-body">
+                    <h5 th:text="#{expenses}" class="card-title font-weight-bold"></h5>
+                    <h6 th:text="#{expenses_text}" class="card-text"></h6>
+                </div>
+            </div>
+
+            <div class="card row m-auto mt-2">
+                <img src="/images/home-page/secure.png" class="card-img-top card-image" alt="secure">
+                <div class="card-body">
+                    <h5 th:text="#{secured}" class="card-title font-weight-bold"></h5>
+                    <h6 th:text="#{secured_text}" class="card-text"></h6>
+                </div>
+            </div>
+
+            <div class="card row m-auto mt-2">
+                <img src="/images/home-page/multi-places.png" class="card-img-top card-image" alt="multi-places">
+                <div class="card-body">
+                    <h5 th:text="#{multiple_places}" class="card-title font-weight-bold"></h5>
+                    <h6 th:text="#{multiple_places_text}" class="card-text">
+                    </h6>
+                </div>
+            </div>
+        </div>
+        <!------------------------CENTER------------------------>
+        <div class="col text-center">
+            <h1 th:text="#{home_manager}" class="p-3"></h1>
+            <img src="/images/home-page/logo.png" class="img-fluid" alt="logo">
+        </div>
+
+        <!------------------------RIGHT SIDE------------------------>
+        <div class="col">
+            <div class="card row m-auto mt-5">
+                <img src="/images/home-page/resident.png" class="card-img-top card-image" alt="resident">
+                <div class="card-body">
+                    <h5 th:text="#{residents}" class="card-title font-weight-bold"></h5>
+                    <h6 th:text="#{residents_text}" class="card-text"></h6>
+                </div>
+            </div>
+
+            <div class="card row m-auto mt-2">
+                <img src="/images/home-page/bills.png" class="card-img-top card-image" alt="utilities">
+                <div class="card-body">
+                    <h5 th:text="#{bills}" class="card-title font-weight-bold"></h5>
+                    <h6 th:text="#{bills_text}" class="card-text"></h6>
+                </div>
+            </div>
+
+            <div class="card row m-auto mt-2">
+                <img src="/images/home-page/surveillance.png" class="card-img-top card-image" alt="surveillance">
+                <div class="card-body">
+                    <h5 th:text="#{surveillance}" class="card-title font-weight-bold"></h5>
+                    <h6 th:text="#{surveillance_text}" class="card-text"></h6>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <footer th:replace="~{fragments/footer :: footer}"></footer>
+    </div>
+</div>
+<script type="text/javascript" src="/js/utils.js"></script>
+</body>
+</html>
